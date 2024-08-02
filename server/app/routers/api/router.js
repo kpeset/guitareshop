@@ -6,9 +6,11 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const itemsRouter = require("./items/router");
+const { readGuitarList } = require("../../controllers/guitarActions");
+const { readCustomer } = require("../../controllers/customerActions");
 
-router.use("/items", itemsRouter);
+router.get("/guitars", readGuitarList);
+router.get("/customers", readCustomer);
 
 /* ************************************************************************* */
 
