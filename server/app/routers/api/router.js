@@ -6,11 +6,17 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const { readGuitarList } = require("../../controllers/guitarActions");
-const { readCustomer } = require("../../controllers/customerActions");
+// Import item-related actions
+const { browse, read, add } = require("../../controllers/itemActions");
 
-router.get("/guitars", readGuitarList);
-router.get("/customers", readCustomer);
+// Route to get a list of items
+router.get("/", browse);
+
+// Route to get a specific item by ID
+router.get("/:id", read);
+
+// Route to add a new item
+router.post("/", add);
 
 /* ************************************************************************* */
 
