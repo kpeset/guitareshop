@@ -6,11 +6,10 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const { readGuitarList } = require("../../controllers/guitarActions");
-const { readCustomer } = require("../../controllers/customerActions");
+const { browse, read } = require("../../controllers/guitarActions");
 
-router.get("/guitars", readGuitarList);
-router.get("/customers", readCustomer);
+router.get("/guitars", browse);
+router.get("/guitars/:id", read);
 
 /* ************************************************************************* */
 
