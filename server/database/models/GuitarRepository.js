@@ -12,11 +12,26 @@ class GuitarRepository extends AbstractRepository {
 
   async read(id) {
     const [rows] = await this.database.query(
-      `select * from guitar where id = ?`,
+      `select name, price, description from guitar where id = ?`,
       [id]
     );
 
     return rows;
+  }
+
+  async create(guitar) {
+    const [result] = await this.database.query(
+      `INSERT INTO guitar (name, price, description, type_id, modele_id) VALUES(?, ?, ?, ?, ?)`,
+      [
+        guitar.name,
+        guitar.price,
+        guitar.description,
+        guitar.typeId,
+        guitar.modeleId,
+      ]
+    );
+
+    return result;
   }
 }
 

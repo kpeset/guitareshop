@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="6C8iT1yJUuaaE5_hDtls" name="architecture">
-        <mxGraphModel dx="2356" dy="947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2037" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -656,71 +656,77 @@
         </mxGraphModel>
     </diagram>
     <diagram id="Hek2Lek-OhLmEIT0mUMB" name="Procédure">
-        <mxGraphModel dx="1058" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="691" dy="1645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-2" style="edgeStyle=none;html=1;" edge="1" parent="1" source="sgRq2tAFAvCpGoSdBsjL-1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-2" style="edgeStyle=none;html=1;" parent="1" source="sgRq2tAFAvCpGoSdBsjL-1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="230" y="150" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-1" value="Déclencher une action suite à une requête" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-1" value="Déclencher une action suite à une requête" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="105" y="75" width="250" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-3" value="requête api -&amp;gt; endpoint&lt;br&gt;exemple : get.(&quot;/guitare)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-3" value="requête api -&amp;gt; endpoint&lt;br&gt;exemple : get.(&quot;/guitare)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="155" y="160" width="150" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-6" style="edgeStyle=none;html=1;" edge="1" parent="1" source="sgRq2tAFAvCpGoSdBsjL-5">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-6" style="edgeStyle=none;html=1;" parent="1" source="sgRq2tAFAvCpGoSdBsjL-5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="250" y="340" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-5" value="router.js" style="html=1;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-5" value="router.js" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="195" y="260" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-7" value="Création d'une route&lt;br&gt;exemple : /guitar" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-7" value="Création d'une route&lt;br&gt;exemple : /guitar" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="185" y="340" width="130" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-10" style="edgeStyle=none;html=1;" edge="1" parent="1" source="sgRq2tAFAvCpGoSdBsjL-9">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-10" style="edgeStyle=none;html=1;" parent="1" source="sgRq2tAFAvCpGoSdBsjL-9" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="250" y="490" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-9" value="guitarActions.js" style="html=1;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-9" value="guitarActions.js" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="195" y="410" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-11" value="Création d'une fonction&lt;br&gt;exemple : avoir les guitares" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-11" value="Création d'une fonction&lt;br&gt;exemple : avoir les guitares" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="165" y="490" width="170" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-12" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-12" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="460" y="430" as="sourcePoint"/>
                         <mxPoint x="330" y="520" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-13" value="Bien penser à l'exporter" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-13" value="Bien penser à l'exporter" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="405" y="395" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-14" value="router.js" style="html=1;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-14" value="router.js" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="195" y="560" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-15" style="edgeStyle=none;html=1;" edge="1" source="sgRq2tAFAvCpGoSdBsjL-14" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-15" style="edgeStyle=none;html=1;" parent="1" source="sgRq2tAFAvCpGoSdBsjL-14" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="250" y="640" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-16" value="Ajouter à notre route, la fonction&lt;br&gt;exemple : /guitar, fonction()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-16" value="Ajouter à notre route, la fonction&lt;br&gt;exemple : /guitar, fonction()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="155" y="640" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-17" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-17" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="460" y="525" as="sourcePoint"/>
                         <mxPoint x="330" y="615" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="sgRq2tAFAvCpGoSdBsjL-18" value="Bien penser à importer la fonction" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="sgRq2tAFAvCpGoSdBsjL-18" value="Bien penser à importer la fonction" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="380" y="490" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gnaiCel5B583MzTqUEzT-1" value="Mon objectif : quand je vais sur une route -&amp;gt; je vais déclencher une action qui me permettra de créer de la data&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="-60" width="620" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="gnaiCel5B583MzTqUEzT-2" value="Mon objectif : je veux créer une fonction qui me fait une requête SQL pour créer une guitare (quelque que soit la guitare)&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="225" y="-30" width="670" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

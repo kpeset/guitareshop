@@ -1,27 +1,69 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const fetchGuitars = () => {
+  // const fetchGuitars = () => {
+  //   axios
+  //     .get("http://localhost:3310/api/guitars")
+  //     .then((response) => console.info(response))
+  //     .catch((error) => console.error(error));
+  // };
+
+  // useEffect(() => {
+  //   fetchGuitars();
+  // }, []);
+
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+
+  const guitarProperties = {
+    name,
+    price,
+    description,
+    typeId: 1,
+    modeleId: 2,
+  };
+
+  const sendGuitar = () => {
     axios
-      .get("http://localhost:3310/api/guitars")
+      .post("http://localhost:3310/api/guitars/", guitarProperties)
       .then((response) => console.info(response))
       .catch((error) => console.error(error));
   };
 
-  useEffect(() => {
-    fetchGuitars();
-  }, []);
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleChangePrice = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
+  };
+  console.info(name, price, description);
 
   return (
     <>
-      <h1>Notre future site de guitare LOzerien</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, sapiente,
-        repellat dolore suscipit ipsam tempora unde non dolorum tenetur
-        laudantium commodi? Accusantium excepturi aliquam facere dolor. Porro
-        quidem modi nihil?
-      </p>
+      <p>Nom de la guitare</p>
+      <input
+        type="text"
+        placeholder="nom de la guitare"
+        onChange={handleChangeName}
+      />
+      <p>Prix</p>
+      <input type="text" placeholder="le prix" onChange={handleChangePrice} />
+      <p>Description</p>
+      <input
+        type="text"
+        placeholder="ta description"
+        onChange={handleChangeDescription}
+      />
+      <button type="button" onClick={sendGuitar}>
+        Envoyer
+      </button>
     </>
   );
 }
