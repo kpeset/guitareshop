@@ -8,14 +8,14 @@ const router = express.Router();
 
 const { browse, read, add } = require("../../controllers/guitarActions");
 
+const { isOpen, isFromLozere } = require("../../services/middleware");
+
 // Appeler le middleware sur cette route
-router.get("/guitars", browse);
+router.get("/guitars", isFromLozere, isOpen, browse);
 
 router.get("/guitars/:id", read);
 
 router.post("/guitars", add);
-
-// post = C ; get = R ; put = U ; delete = D
 
 /* ************************************************************************* */
 

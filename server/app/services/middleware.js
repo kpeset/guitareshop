@@ -1,7 +1,24 @@
-// Vous allez me créer une fonction qui va nous permettre de fermer le magasin
-// Une fonction qui va vérifier un horaire
-// On ne pourra accéder au calogue des guitares uniquement entre 9h et 17h
+const isFromLozere = (req, res, next) => {
+  const lozerian = false;
 
-// Créer la fonction ici
+  if (!lozerian) {
+    res.status(401).send("Sorry bro tu n'es pas de la Lozère");
+  } else {
+    next();
+  }
+};
 
-// N'oubliez pas d'exporter
+const isOpen = (req, res, next) => {
+  const now = new Date().getHours();
+
+  const openingHour = 9;
+  const closingHour = 17;
+
+  if (now >= openingHour && now < closingHour) {
+    next();
+  } else {
+    res.status(401).send("Magasin fermé");
+  }
+};
+
+module.exports = { isOpen, isFromLozere };
