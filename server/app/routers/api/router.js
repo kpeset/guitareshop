@@ -8,7 +8,9 @@ const router = express.Router();
 
 const { browse, read, add } = require("../../controllers/guitarActions");
 
+// Appeler le middleware sur cette route
 router.get("/guitars", browse);
+
 router.get("/guitars/:id", read);
 
 router.post("/guitars", add);
