@@ -6,16 +6,25 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const { browse, read, add } = require("../../controllers/guitarActions");
+const guitarActions = require("../../controllers/guitarActions");
+const userActions = require("../../controllers/userActions");
 
-const { isOpen, isFromLozere } = require("../../services/middleware");
+const middlewares = require("../../services/middleware");
 
 // Appeler le middleware sur cette route
-router.get("/guitars", isFromLozere, isOpen, browse);
+router.get(
+  "/guitars",
+  middlewares.isFromLozere,
+  middlewares.isOpen,
+  guitarActions.browse
+);
 
-router.get("/guitars/:id", read);
+router.get("/guitars/:id", guitarActions.read);
 
-router.post("/guitars", add);
+router.post("/guitars", guitarActions.add);
+
+router.get("/users", userActions.browse);
+router.post("/users", middlewares.verifyFields, userActions.add);
 
 /* ************************************************************************* */
 

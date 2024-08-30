@@ -1,3 +1,16 @@
+-- Création de la table USER
+CREATE TABLE user (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
+);
+
+-- Création des users
+INSERT INTO
+  user (email, password)
+VALUES
+  ("admin@gmail.com", "windylechat");
+
 -- Création de la table TYPE
 CREATE TABLE type (
   id INT AUTO_INCREMENT PRIMARY KEY,

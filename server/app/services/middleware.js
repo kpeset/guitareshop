@@ -1,3 +1,5 @@
+const Joi = require("joi");
+
 const isFromLozere = (req, res, next) => {
   const lozerian = false;
 
@@ -21,4 +23,19 @@ const isOpen = (req, res, next) => {
   }
 };
 
-module.exports = { isOpen, isFromLozere };
+const verifyFields = (req, res, next) => {
+  const schema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).required(),
+  });
+
+  const result = schema.validate(req.body);
+
+  if (result.error) {
+    res.status(400).send(result.error.message);
+  } else {
+    next();
+  }
+};
+
+module.exports = { isOpen, isFromLozere, verifyFields };
