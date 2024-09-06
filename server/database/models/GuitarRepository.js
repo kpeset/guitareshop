@@ -21,11 +21,12 @@ class GuitarRepository extends AbstractRepository {
 
   async create(guitar) {
     const [result] = await this.database.query(
-      `INSERT INTO guitar (name, price, description, type_id, modele_id) VALUES(?, ?, ?, ?, ?)`,
+      `INSERT INTO guitar (name, price, description, image, type_id, modele_id) VALUES(?, ?, ?, ?, ?, ?)`,
       [
         guitar.name,
         guitar.price,
         guitar.description,
+        guitar.image,
         guitar.typeId,
         guitar.modeleId,
       ]

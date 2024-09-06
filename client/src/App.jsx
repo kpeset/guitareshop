@@ -1,33 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  // const fetchGuitars = () => {
-  //   axios
-  //     .get("http://localhost:3310/api/guitars")
-  //     .then((response) => console.info(response))
-  //     .catch((error) => console.error(error));
-  // };
+  const fetchGuitars = () => {
+    axios
+      .get("http://localhost:3310/api/guitars")
+      .then((response) => console.info(response))
+      .catch((error) => console.error(error));
+  };
 
-  // useEffect(() => {
-  //   fetchGuitars();
-  // }, []);
+  useEffect(() => {
+    fetchGuitars();
+  }, []);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-
-  const guitarProperties = {
-    name,
-    price,
-    description,
-    typeId: 1,
-    modeleId: 2,
-  };
+  const [image, setImage] = useState(null);
 
   const sendGuitar = () => {
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("typeId", 1);
+    formData.append("modeleId", 2);
+    formData.append("image", image);
+
     axios
-      .post("http://localhost:3310/api/guitars/", guitarProperties)
+      .post("http://localhost:3310/api/guitars/", formData, {
+        "Content-Type": "multipart/form-data",
+      })
       .then((response) => console.info(response))
       .catch((error) => console.error(error));
   };
@@ -43,7 +47,10 @@ function App() {
   const handleChangeDescription = (event) => {
     setDescription(event.target.value);
   };
-  console.info(name, price, description);
+
+  const handleChangeImage = (event) => {
+    setImage(event.target.files[0]);
+  };
 
   return (
     <>
@@ -61,6 +68,8 @@ function App() {
         placeholder="ta description"
         onChange={handleChangeDescription}
       />
+      <p>Image</p>
+      <input type="file" onChange={handleChangeImage} />
       <button type="button" onClick={sendGuitar}>
         Envoyer
       </button>

@@ -12,16 +12,11 @@ const userActions = require("../../controllers/userActions");
 const middlewares = require("../../services/middleware");
 
 // Appeler le middleware sur cette route
-router.get(
-  "/guitars",
-  middlewares.isFromLozere,
-  middlewares.isOpen,
-  guitarActions.browse
-);
+router.get("/guitars", guitarActions.browse);
 
 router.get("/guitars/:id", guitarActions.read);
 
-router.post("/guitars", guitarActions.add);
+router.post("/guitars", middlewares.uploadPicture, guitarActions.add);
 
 router.get("/users", userActions.browse);
 router.post("/users", middlewares.verifyFields, userActions.add);

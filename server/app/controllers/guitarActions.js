@@ -33,6 +33,8 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   try {
+    console.info("req.body", req.body);
+
     const result = await tables.guitar.create(req.body);
     res
       .status(201)

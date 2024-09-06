@@ -66,6 +66,7 @@ CREATE TABLE guitar (
   name VARCHAR(255) NOT NULL,
   price DECIMAL (10, 2) UNSIGNED NOT NULL,
   description TEXT,
+  image VARCHAR(255) DEFAULT "/default.png",
   type_id INT NOT NULL,
   modele_id INT NOT NULL,
   FOREIGN KEY (type_id) REFERENCES type(id),
