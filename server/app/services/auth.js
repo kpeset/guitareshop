@@ -84,6 +84,12 @@ const verifyToken = async (req, res, next) => {
     next(error);
   }
 };
+// const checkIfIsAdmin = () => {
+//   // decoder le token => vérifier si il est authentique
+//   // on accède au payload pour voir le role
+//   // si le role est admin => next
+//   // sinon error 401
+// }
 
 module.exports = { hashPassword, verifyPassword, createToken, verifyToken };
 // jwt.verify(token, secretOrPublicKey, [options, callback])
