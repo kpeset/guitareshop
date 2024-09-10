@@ -11,6 +11,8 @@ const userActions = require("../../controllers/userActions");
 
 const middlewares = require("../../services/middleware");
 
+const auth = require("../../services/auth");
+
 // Appeler le middleware sur cette route
 router.get("/guitars", guitarActions.browse);
 
@@ -19,7 +21,14 @@ router.get("/guitars/:id", guitarActions.read);
 router.post("/guitars", middlewares.uploadPicture, guitarActions.add);
 
 router.get("/users", userActions.browse);
-router.post("/users", middlewares.verifyFields, userActions.add);
+router.post(
+  "/users",
+  middlewares.verifyFields,
+  auth.hashPassword,
+  userActions.add
+);
+
+router.post("/login", auth.verifyPassword, userActions.login);
 
 /* ************************************************************************* */
 

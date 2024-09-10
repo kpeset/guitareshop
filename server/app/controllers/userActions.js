@@ -25,11 +25,12 @@ const add = async (req, res, next) => {
   }
 };
 
-// FORMULAIRE D'INSCRIPTION :
-// Savoir si un email existe
-// Savoir si il y a un @ .fr
+const login = async (req, res, next) => {
+  try {
+    res.sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
 
-// Vérifier la longueur du mdp
-// Inclure des regex -> expressions régulières
-
-module.exports = { browse, add };
+module.exports = { browse, add, login };

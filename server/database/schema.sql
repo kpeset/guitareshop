@@ -9,7 +9,10 @@ CREATE TABLE user (
 INSERT INTO
   user (email, password)
 VALUES
-  ("admin@gmail.com", "windylechat");
+  (
+    "admin@gmail.com",
+    "$argon2id$v=19$m=19456,t=2,p=1$DHzLu93UAoMoR6z5oogZHw$21/05A4ywbtkNkLy76RtLgJon4neVg2fP/uunhYiBMA"
+  );
 
 -- Création de la table TYPE
 CREATE TABLE type (
