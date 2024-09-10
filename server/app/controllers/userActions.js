@@ -27,7 +27,11 @@ const add = async (req, res, next) => {
 
 const login = async (req, res, next) => {
   try {
-    res.sendStatus(200);
+    res.cookie("auth", req.token).json({
+      message: "Connexion réussie",
+      id: req.user.id,
+      email: req.user.email,
+    });
   } catch (error) {
     next(error);
   }

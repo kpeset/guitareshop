@@ -1,4 +1,5 @@
 const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 const tables = require("../../database/tables");
 
 const hashingOptions = {
@@ -33,6 +34,13 @@ const verifyPassword = async (req, res, next) => {
       res.sendStatus(401);
     }
 
+    req.user = {
+      id: user.id,
+      email: user.email,
+    };
+
+    console.info(req.user);
+
     const verified = await argon2.verify(user.password, password);
 
     if (!verified) {
@@ -45,4 +53,37 @@ const verifyPassword = async (req, res, next) => {
   }
 };
 
-module.exports = { hashPassword, verifyPassword };
+const createToken = async (req, res, next) => {
+  try {
+    const payload = req.user;
+
+    // jwt.sign(payload, secretOrPrivateKey, [options, callback])
+
+    const token = await jwt.sign(payload, process.env.APP_SECRET, {
+      expiresIn: "1y",
+    });
+
+    req.token = token;
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+const verifyToken = async (req, res, next) => {
+  try {
+    const { auth } = req.cookies;
+    console.info(auth);
+
+    const result = await jwt.verify(auth, process.env.APP_SECRET);
+    console.info(result);
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { hashPassword, verifyPassword, createToken, verifyToken };
+// jwt.verify(token, secretOrPublicKey, [options, callback])

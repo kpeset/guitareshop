@@ -14,7 +14,7 @@ const middlewares = require("../../services/middleware");
 const auth = require("../../services/auth");
 
 // Appeler le middleware sur cette route
-router.get("/guitars", guitarActions.browse);
+router.get("/guitars", auth.verifyToken, guitarActions.browse);
 
 router.get("/guitars/:id", guitarActions.read);
 
@@ -28,7 +28,7 @@ router.post(
   userActions.add
 );
 
-router.post("/login", auth.verifyPassword, userActions.login);
+router.post("/login", auth.verifyPassword, auth.createToken, userActions.login);
 
 /* ************************************************************************* */
 

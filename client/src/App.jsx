@@ -4,7 +4,9 @@ import axios from "axios";
 function App() {
   const fetchGuitars = () => {
     axios
-      .get("http://localhost:3310/api/guitars")
+      .get("http://localhost:3310/api/guitars", {
+        withCredentials: true,
+      })
       .then((response) => console.info(response))
       .catch((error) => console.error(error));
   };
