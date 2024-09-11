@@ -6,7 +6,9 @@ class GuitarRepository extends AbstractRepository {
   }
 
   async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `SELECT guitar.*, type.id as type_id, type.name as type_name from ${this.table} join type on type.id = guitar.type_id`
+    );
     return rows;
   }
 

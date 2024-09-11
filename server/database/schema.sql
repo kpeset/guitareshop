@@ -78,12 +78,20 @@ CREATE TABLE guitar (
 
 -- Création de data pour guitar
 INSERT INTO
-  guitar (name, price, description, type_id, modele_id)
+  guitar (
+    name,
+    price,
+    description,
+    image,
+    type_id,
+    modele_id
+  )
 VALUES
   (
     "Fender Jimi Hendrix Strat OWH",
     1168.00,
     "Jimi Hendrix signature on the back of the headstock",
+    "/strat.webp",
     2,
     1
   ),
@@ -92,6 +100,7 @@ VALUES
     1269.00,
     "Fender Tom DeLonge Stratocaster RW Surf Green elektrische gitaar met deluxe gigbag
 ",
+    "/strattom.webp",
     2,
     1
   ),
@@ -101,6 +110,7 @@ VALUES
     4222.00,
     "Custom Shop John 5 Signature Model
 ",
+    "/tele.jpg",
     2,
     2
   ),
@@ -108,6 +118,7 @@ VALUES
     "Gibson SG Standard '61 - Vintage Cherry",
     1999.00,
     "Immortalized by Santana at Woodstock and smashed onstage by Townshend, the Gibson SG is a rock icon.",
+    "/sg.jpg",
     2,
     3
   ),
@@ -116,6 +127,7 @@ VALUES
 ",
     204.00,
     "Avec la T70A Tramontane 70, Lag Guitars offre une guitar acoustique de type Auditorium pour un prix abordable.",
+    "/tramontane.webp",
     3,
     4
   ),
@@ -125,6 +137,7 @@ VALUES
     539.00,
     "Steve Vai signature model
 ",
+    "/iba.webp",
     2,
     6
   );
