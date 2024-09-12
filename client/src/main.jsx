@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Dashboard from "./pages/Dashboard";
 
-import { getGuitars } from "./services/request";
+import { getGuitars, getTypes } from "./services/request";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <Shop />,
-        loader: getGuitars,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const type = url.searchParams.get("type");
+          console.info(type);
+          const result = {
+            types: await getTypes(),
+            guitars: await getGuitars(type),
+          };
+          return result;
+        },
       },
       {
         path: "/dashboard",

@@ -2,7 +2,9 @@ const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
   try {
-    const guitars = await tables.guitar.readAll();
+    const { type } = req.query;
+    console.info("type :", type);
+    const guitars = await tables.guitar.readAll(type);
 
     if (guitars.length === 0) {
       res.json({

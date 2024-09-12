@@ -8,6 +8,7 @@ const router = express.Router();
 
 const guitarActions = require("../../controllers/guitarActions");
 const userActions = require("../../controllers/userActions");
+const typeActions = require("../../controllers/typeActions");
 
 const middlewares = require("../../services/middleware");
 
@@ -30,6 +31,8 @@ router.post(
 );
 
 router.post("/login", auth.verifyPassword, auth.createToken, userActions.login);
+
+router.get("/types", typeActions.browse);
 
 /* ************************************************************************* */
 

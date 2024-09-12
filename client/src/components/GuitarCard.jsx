@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 export default function GuitarCard({ guitar }) {
-  console.info(guitar);
   return (
     <div className="guitar_card">
       <h2>{guitar.name}</h2>
