@@ -13,3 +13,10 @@ export function getTypes() {
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
+
+export function getModeles() {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/modeles`)
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+}

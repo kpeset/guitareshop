@@ -12,6 +12,18 @@ VALUES
   (
     "admin@gmail.com",
     "$argon2id$v=19$m=19456,t=2,p=1$DHzLu93UAoMoR6z5oogZHw$21/05A4ywbtkNkLy76RtLgJon4neVg2fP/uunhYiBMA"
+  ),
+  (
+    "kevin@gmail.com",
+    "$argon2id$v=19$m=19456,t=2,p=1$DHzLu93UAoMoR6z5oogZHw$21/05A4ywbtkNkLy76RtLgJon4neVg2fP/uunhYiBMA"
+  ),
+  (
+    "windy@gmail.com",
+    "$argon2id$v=19$m=19456,t=2,p=1$DHzLu93UAoMoR6z5oogZHw$21/05A4ywbtkNkLy76RtLgJon4neVg2fP/uunhYiBMA"
+  ),
+  (
+    "ninon@gmail.com",
+    "$argon2id$v=19$m=19456,t=2,p=1$DHzLu93UAoMoR6z5oogZHw$21/05A4ywbtkNkLy76RtLgJon4neVg2fP/uunhYiBMA"
   );
 
 -- Création de la table TYPE
@@ -69,11 +81,13 @@ CREATE TABLE guitar (
   name VARCHAR(255) NOT NULL,
   price DECIMAL (10, 2) UNSIGNED NOT NULL,
   description TEXT,
-  image VARCHAR(255) DEFAULT "/default.png",
+  image VARCHAR(255) DEFAULT "/default.jpg",
   type_id INT NOT NULL,
   modele_id INT NOT NULL,
+  user_id INT NOT NULL,
   FOREIGN KEY (type_id) REFERENCES type(id),
-  FOREIGN KEY (modele_id) REFERENCES modele(id)
+  FOREIGN KEY (modele_id) REFERENCES modele(id),
+  FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 -- Création de data pour guitar
@@ -84,7 +98,8 @@ INSERT INTO
     description,
     image,
     type_id,
-    modele_id
+    modele_id,
+    user_id
   )
 VALUES
   (
@@ -93,6 +108,7 @@ VALUES
     "Jimi Hendrix signature on the back of the headstock",
     "/strat.webp",
     2,
+    1,
     1
   ),
   (
@@ -102,7 +118,8 @@ VALUES
 ",
     "/strattom.webp",
     2,
-    1
+    1,
+    2
   ),
   (
     "Fender John 5 Tele RW BK
@@ -112,7 +129,8 @@ VALUES
 ",
     "/tele.jpg",
     2,
-    2
+    2,
+    3
   ),
   (
     "Gibson SG Standard '61 - Vintage Cherry",
@@ -120,7 +138,8 @@ VALUES
     "Immortalized by Santana at Woodstock and smashed onstage by Townshend, the Gibson SG is a rock icon.",
     "/sg.jpg",
     2,
-    3
+    3,
+    4
   ),
   (
     "LAG Guitars Tramontane 70 T70A Natural guitar acoustique folk
@@ -129,6 +148,7 @@ VALUES
     "Avec la T70A Tramontane 70, Lag Guitars offre une guitar acoustique de type Auditorium pour un prix abordable.",
     "/tramontane.webp",
     3,
+    4,
     4
   ),
   (
@@ -139,7 +159,8 @@ VALUES
 ",
     "/iba.webp",
     2,
-    6
+    6,
+    1
   );
 
 -- Création de la table PHOTO

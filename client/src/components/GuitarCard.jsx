@@ -2,6 +2,7 @@
 export default function GuitarCard({ guitar }) {
   return (
     <div className="guitar_card">
+      <p>Vendeur : {guitar.seller}</p>
       <h2>{guitar.name}</h2>
       <h5>{guitar.type_name}</h5>
       <img

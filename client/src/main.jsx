@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Dashboard from "./pages/Dashboard";
 
-import { getGuitars, getTypes } from "./services/request";
+import { getGuitars, getTypes, getModeles } from "./services/request";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +38,13 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+        loader: async () => {
+          const result = {
+            types: await getTypes(),
+            modeles: await getModeles(),
+          };
+          return result;
+        },
       },
     ],
   },
