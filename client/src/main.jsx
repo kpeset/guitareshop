@@ -10,6 +10,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 
 import { getGuitars, getTypes, getModeles } from "./services/request";
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
           };
           return result;
         },
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

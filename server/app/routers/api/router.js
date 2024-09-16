@@ -21,7 +21,12 @@ router.get("/guitars", guitarActions.browse);
 
 router.get("/guitars/:id", guitarActions.read);
 
-router.post("/guitars", middlewares.uploadPicture, guitarActions.add);
+router.post(
+  "/guitars",
+  auth.verifyToken,
+  middlewares.uploadPicture,
+  guitarActions.add
+);
 
 router.get("/users", userActions.browse);
 router.post(

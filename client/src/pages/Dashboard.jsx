@@ -22,7 +22,9 @@ export default function Dasboard() {
 
   const sendGuitar = () => {
     axios
-      .post(`${import.meta.env.VITE_API_URL}/api/guitars/`, guitarProperties)
+      .post(`${import.meta.env.VITE_API_URL}/api/guitars/`, guitarProperties, {
+        withCredentials: true,
+      })
       .then((response) => console.info(response))
       .catch((error) => console.error(error));
   };
@@ -63,7 +65,7 @@ export default function Dasboard() {
           </option>
         ))}
       </select>
-      <p>Modèle</p>
+      <p>Type</p>
       <select onChange={handleChangeType}>
         {types.map((type) => (
           <option key={type.id} value={type.id}>

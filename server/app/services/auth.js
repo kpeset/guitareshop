@@ -76,6 +76,12 @@ const verifyToken = async (req, res, next) => {
     const { auth } = req.cookies;
     console.info(auth);
 
+    // Pour tout faire d'un coup
+    // jwt.verify(
+    //   authTokenWildApp,
+    //   process.env.APP_SECRET,
+    //   (err, decoded) => {}
+
     const result = await jwt.verify(auth, process.env.APP_SECRET);
     console.info(result);
 
