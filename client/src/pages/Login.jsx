@@ -1,9 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "../services/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setUser } = useContext(AuthContext);
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -21,7 +24,12 @@ export default function Login() {
         { email, password },
         { withCredentials: true }
       )
-      .then((response) => console.info(response))
+      .then((response) => {
+        setUser({
+          id: response.data.id,
+          email: response.data.email,
+        });
+      })
       .catch((error) => console.error(error));
   };
 

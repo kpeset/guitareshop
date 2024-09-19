@@ -41,6 +41,10 @@ router.post("/login", auth.verifyPassword, auth.createToken, userActions.login);
 router.get("/types", typeActions.browse);
 router.get("/modeles", modeleActions.browse);
 
+router.get("/checkAuth", auth.verifyToken, userActions.isLogged);
+
+router.get("/disconnect", userActions.disconnect);
+
 /* ************************************************************************* */
 
 module.exports = router;

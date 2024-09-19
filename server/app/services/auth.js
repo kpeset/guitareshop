@@ -57,8 +57,6 @@ const createToken = async (req, res, next) => {
   try {
     const payload = req.user;
 
-    // jwt.sign(payload, secretOrPrivateKey, [options, callback])
-
     const token = await jwt.sign(payload, process.env.APP_SECRET, {
       expiresIn: "1y",
     });
@@ -74,13 +72,6 @@ const createToken = async (req, res, next) => {
 const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
-    console.info(auth);
-
-    // Pour tout faire d'un coup
-    // jwt.verify(
-    //   authTokenWildApp,
-    //   process.env.APP_SECRET,
-    //   (err, decoded) => {}
 
     const result = await jwt.verify(auth, process.env.APP_SECRET);
     console.info(result);
@@ -90,12 +81,5 @@ const verifyToken = async (req, res, next) => {
     next(error);
   }
 };
-// const checkIfIsAdmin = () => {
-//   // decoder le token => vérifier si il est authentique
-//   // on accède au payload pour voir le role
-//   // si le role est admin => next
-//   // sinon error 401
-// }
 
 module.exports = { hashPassword, verifyPassword, createToken, verifyToken };
-// jwt.verify(token, secretOrPublicKey, [options, callback])
