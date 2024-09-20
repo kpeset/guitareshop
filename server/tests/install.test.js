@@ -11,8 +11,14 @@ describe("Installation", () => {
     expect(fs.existsSync(path.join(__dirname, "..", ".env"))).toBe(true);
   });
 
+  test("You have created /client/.env", async () => {
+    expect(fs.existsSync(path.join(__dirname, "../../client", ".env"))).toBe(
+      true
+    );
+  });
+
   // Test: Check if the .env.sample file exists
-  test("You have retained /server/.env.sample", async () => {
+  test("You have retained /client/.env.sample", async () => {
     expect(fs.existsSync(path.join(__dirname, "..", ".env.sample"))).toBe(true);
   });
 
@@ -27,8 +33,8 @@ describe("Installation", () => {
 
   // Test: Check if the database migration and seeding scripts have been executed
   test("You have executed the db:migrate and db:seed scripts", async () => {
-    // Query the 'item' table to check if any data has been inserted
-    const [rows] = await database.query(`select * from item`);
+    // Query the 'guitar' table to check if any data has been inserted
+    const [rows] = await database.query(`select * from guitar`);
 
     // Expecting at least one row to be returned, indicating successful migration and seeding
     expect(rows.length).toBeGreaterThan(0);

@@ -11,7 +11,7 @@ class GuitarRepository extends AbstractRepository {
         `SELECT guitar.*, type.id as type_id, type.name as type_name, user.email as seller from ${this.table} join type on type.id = guitar.type_id join user on user.id = guitar.user_id`
       );
 
-      console.info("rows vide", rows);
+      // console.info("rows vide", rows);
       return rows;
     }
     const [rows] = await this.database.query(
